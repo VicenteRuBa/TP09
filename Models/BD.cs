@@ -1,4 +1,5 @@
 using System.Data.SqlClient;
+using System.Data;
 using Dapper;
 using TP09.Models;
 public class BD{
@@ -7,21 +8,21 @@ public class BD{
         List<Usuario> listaUsuarios;
         using(SqlConnection db = new SqlConnection(_connectionString)){
         string sp = "LevantarUsuarios";
-        listaUsuarios = db.Query<Usuario>(sp, commandType: commandType.StoredProcedure).ToList();
+        listaUsuarios = db.Query<Usuario>(sp, commandType: CommandType.StoredProcedure).ToList();
         }
         return listaUsuarios;
     }
-    public static void ActualizarContraseña(int ID){
+    public static void ActualizarContraseña(int ID, string NuevaContra){
         string sp = "ActualizarContraseña";
         using(SqlConnection db = new SqlConnection(_connectionString)){
-        db.Execute(sp, new{IdUsuario = ID} commandType: commandType.StoredProcedure);
+        db.Execute(sp, new{IdUsuario = ID, NuevaContraseña = NuevaContra}, commandType: CommandType.StoredProcedure);
         }
     }
     public static void InsertarUsuario(Usuario Usuario){
         string sp = "InsertarUsuario";
         using(SqlConnection db = new SqlConnection(_connectionString)){
         db.Execute(sp, new{Username = Usuario.Username, Password = Usuario.Password,
-        Nombre = Usuario.Nombre, Email = Usuario.Email, Telefono = Usuario.Telefono} commandType: commandType.StoredProcedure);
+        Nombre = Usuario.Nombre, Email = Usuario.Email, Telefono = Usuario.Telefono}, commandType: CommandType.StoredProcedure);
         }
     }
 }

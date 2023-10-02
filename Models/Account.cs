@@ -1,9 +1,14 @@
+using TP09.Models;
 public static class Account{
-    private static List<Usuario> listaUsuarios;
-    public static void IniciarPrograma(){
-        listaUsuarios = BD.LevantarUsuarios;
-    }
+
     public static List<Usuario> ObtenerUsuarios(){
-        return listaUsuarios;
+        return BD.LevantarUsuarios();
+    }
+    public static void ActualizarContraseña(Usuario Usuario, string NuevaContra){
+        BD.ActualizarContraseña(Usuario.ID, NuevaContra);
+    }
+    public static void IngresarUsuario(Usuario Usuario)
+    {
+        BD.InsertarUsuario(Usuario);
     }
 }
