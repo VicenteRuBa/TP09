@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using TP09.Models;
 namespace TP09.Controllers;
 
 public class HomeController : Controller
@@ -8,4 +8,9 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult Login()
+    {
+        
+    }  
+
 }
