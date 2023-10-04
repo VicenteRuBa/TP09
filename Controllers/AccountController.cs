@@ -9,9 +9,9 @@ public class HomeController : Controller
         ViewBag.levantar = Account.ObtenerUsuarios();
         return View();
     }
-    public IActionResult Registro(Usuario Usuario)
+    public IActionResult Registro()
     {
-        Account.IngresarUsuario(Usuario);
+        ViewBag.levantar = Account.ObtenerUsuarios();
         return View();
     }
     public IActionResult OlvideMiContraseña(Usuario Usuario, string NuevaContra)
@@ -23,5 +23,10 @@ public class HomeController : Controller
     {
         ViewBag.Usuario = Usuario;
         return View();
+    }
+    public IActionResult PostRegistro(Usuario Usuario)
+    {
+        Account.IngresarUsuario(Usuario);
+        return View("PostLogin");
     }
 }

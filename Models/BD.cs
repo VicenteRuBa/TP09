@@ -3,7 +3,7 @@ using System.Data;
 using Dapper;
 using TP09.Models;
 public class BD{
-    private static string _connectionString = @"Server=A-PHZ2-AMI-006;DataBase=TP09;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-050;DataBase=TP09;Trusted_Connection=True;";
     public static List<Usuario> LevantarUsuarios(){
         List<Usuario> listaUsuarios;
         using(SqlConnection db = new SqlConnection(_connectionString)){
