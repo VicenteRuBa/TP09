@@ -25,4 +25,12 @@ public class BD{
         Nombre = Usuario.Nombre, Email = Usuario.Email, Telefono = Usuario.Telefono}, commandType: CommandType.StoredProcedure);
         }
     }
+    public static Usuario BuscarUsuario(string email, string contraseña){
+        Usuario Usuario = null;
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+        string sp = "BuscarUsuario";
+        Usuario = db.QueryFirstOrDefault<Usuario>(sp, new{Email = email, Contraseña = contraseña}, commandType: CommandType.StoredProcedure);
+        }
+        return Usuario;
+    }
 }

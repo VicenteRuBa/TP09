@@ -11,4 +11,8 @@ public static class Account{
     {
         BD.InsertarUsuario(Usuario);
     }
+    public static Usuario BuscarUsuario(string email, string contraseña)
+    {
+        return BD.BuscarUsuario(email, contraseña);
+    }
 }

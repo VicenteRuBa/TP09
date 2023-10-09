@@ -19,14 +19,14 @@ public class HomeController : Controller
         Account.ActualizarContraseña(Usuario, NuevaContra);
         return View();
     }
-    public IActionResult PostLogin(Usuario Usuario)
+    public IActionResult PostLogin(string email, string contraseña)
     {
-        ViewBag.Usuario = Usuario;
+        ViewBag.Usuario = Account.BuscarUsuario(email, contraseña);
         return View();
     }
     public IActionResult PostRegistro(Usuario Usuario)
     {
         Account.IngresarUsuario(Usuario);
-        return View("PostLogin");
+        return RedirectToAction("PostLogin", new{Usuario = Usuario});
     }
 }
