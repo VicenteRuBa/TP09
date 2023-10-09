@@ -1,7 +1,6 @@
 @{
     ViewData["Title"] = "Registro";
 }
-<h1>TP 09 - Register</h1>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -51,10 +50,10 @@
     </div>
   </div>
    <div class="col-12">
-    <button class="btn btn-primary" type="submit">Submit form</button>
+  <button type="submit" class="btn btn-outline-primary"><a href='@Url.Action("Index","Home")'>Submit</button>
   </div>
 </form>
 </div>
-<p>¿Ya tienes una cuenta?<a href='@Url.Action("Index","Home")'>Logueate</a></p>
+<p>¿Ya tienes una cuenta?<a href='@Url.Action("Index","Home")'> Logueate</a></p>
 
 </body>

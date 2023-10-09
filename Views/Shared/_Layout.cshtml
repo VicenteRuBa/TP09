@@ -3,18 +3,39 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - TPXX - Apellido</title>
+        <title>@ViewData["Title"] - TP09 - Apellido</title>
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </head>
     <body>
         <header style="position:fixed; top: 0; margin: 10px 0px 20px 0px;">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='@Url.Action("Index","Home")'>Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='@Url.Action("Registro","Home")'>Registro</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='@Url.Action("OlvideMiContraseña","Home")'>Olvide Mi Contraseña</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
         </header>
         <div style="padding:20px 10px 0px 10px;">
             @RenderBody()
         </div>
 
         <footer>
-                &copy; @DateTime.Now.Year - Taller de Programación - TPXX
+                &copy; @DateTime.Now.Year - Taller de Programación - TP09
         </footer>
         <script src="~/js/site.js" asp-append-version="true"></script>
         @await RenderSectionAsync("Scripts", required: false)
