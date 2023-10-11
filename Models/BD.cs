@@ -3,7 +3,7 @@ using System.Data;
 using Dapper;
 using TP09.Models;
 public class BD{
-    private static string _connectionString = @"Server=A-PHZ2-AMI-002;DataBase=TP09;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-050;DataBase=TP09;Trusted_Connection=True;";
     public static List<Usuario> LevantarUsuarios(){
         List<Usuario> listaUsuarios;
         using(SqlConnection db = new SqlConnection(_connectionString)){
@@ -19,8 +19,8 @@ public class BD{
         }
     }
     public static void InsertarUsuario(Usuario Usuario){
-        string sp = "InsertarUsuario";
         using(SqlConnection db = new SqlConnection(_connectionString)){
+        string sp = "InsertarUsuario";
         db.Execute(sp, new{Username = Usuario.Username, Password = Usuario.Password,
         Nombre = Usuario.Nombre, Email = Usuario.Email, Telefono = Usuario.Telefono}, commandType: CommandType.StoredProcedure);
         }
